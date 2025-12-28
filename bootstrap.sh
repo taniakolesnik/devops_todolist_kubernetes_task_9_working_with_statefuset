@@ -1,6 +1,6 @@
 #!/bin/bash
 cd .infrastructure
-kubectl apply -f cluster.yml
+kind create cluster --config cluster.yml
 kubectl apply -f namespace.yml
 kubectl apply -f namespacemysql.yml
 kubectl apply -f confgiMap.yml
