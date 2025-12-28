@@ -35,17 +35,17 @@ Create a Kubernetes manifest for a pod that will contain a ToDo app container:
 1. Use `kind` to spin up a cluster from a `cluster.yml` configuration file.
 1. Create a `statefulSet.yml` file for `StatefulSet` to manage MySQL.
 1. `StatefulSet` requirement:
-    <!-- 1. `StatefulSet` should be deployed in a `mysql` namespace
-    1. `StatefulSet` should have 3 replicas -->
-    <!-- 3. `StatefulSet` is reading sensitive data from a secret:
+    1. `StatefulSet` should be deployed in a `mysql` namespace
+    1. `StatefulSet` should have 3 replicas
+    3. `StatefulSet` is reading sensitive data from a secret:
         1. `MYSQL_ROOT_PASSWORD`
         1. `MYSQL_USER`
-        1. `MYSQL_PASSWORD` -->
-    <!-- 4. `StatefulSet` pods should have a `livenessProbe` and `readinessProbe` -->
-    <!-- 5. `StatefulSet` pods should have `requests` and `limits` for `CPU` and `Memory` -->
+        1. `MYSQL_PASSWORD`
+    4. `StatefulSet` pods should have a `livenessProbe` and `readinessProbe`
+    5. `StatefulSet` pods should have `requests` and `limits` for `CPU` and `Memory`
     6. MySQL db should be inited from an `init.sql` that should be propagated as a mounted volume in `/docker-entrypoint-initdb.d`
-    <!-- 7. `StatefulSet` should have `volumeClaimTemplates`
-    8. `StatefulSet` should have a headless `Service` to expose db pods -->
+    7. `StatefulSet` should have `volumeClaimTemplates`
+    8. `StatefulSet` should have a headless `Service` to expose db pods
 1. `Deployment` requirements:
     1. Update your application so it can connect to a 0 indexed db pod (`mysql-0`)
     2. The application should read db connection information from a `Secret`:
